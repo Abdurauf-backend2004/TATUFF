@@ -1,0 +1,26 @@
+<center><h1>Binolar ro`yxati</h1></center>
+<form>
+    <input type="text" name="q_soz" placeholder="nom kiriting .."
+    {% if q_soz %} value="{{q_soz}}" {%endif%}>
+    <button>Qidirish</button>
+    <a href="/bino/"><button type="button">Tozlash</button></a>
+    <a href="/"><button type="button">Bosh sahifa</button></a>
+</form>
+<hr>
+{% for bino in binolar  %}
+<a href="/bino/{{bino.id}}">{{forloop.counter}}.{{bino.bino_nom}} </a> <a href="/bino/{{bino.id}}/delete/"><button>O`chirish</button></a><br><br>
+{% endfor%}
+<hr>
+<br><br>
+<form method="post">
+    {%csrf_token%}
+    <label>Bino kiriting:</label>
+    <input type="text" name="bino" placeholder="Bino kiriting">
+    <label >Asosiy</label>
+    <select name=asosiy >
+        <option >True</option>
+        <option>False</option>
+    </select>
+    <br><br>
+    <button>Qo`shish</button>
+</form>

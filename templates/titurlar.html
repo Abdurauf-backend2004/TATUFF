@@ -1,0 +1,37 @@
+<center><h1>Titurlar ro`yxati</h1></center>
+<form>
+    <input type="text" name="q_soz" placeholder="Ism kiriting..."
+    {% if q_soz %}
+      value="{{q_soz}}"
+           {%endif%}
+    >
+    <button>Qidirish</button>
+    <a href="/titurlar/"><button type="button">Tozlash</button></a>
+    <a href="/"><button type="button">Bosh sahifa</button></a>
+</form>
+<hr>
+{% for titur in titurlar %}
+
+<a href="/titurlar/{{titur.id}}">{{forloop.counter}}.{{titur.ism}} {{titur.familya}} </a><a href="/titurlar/{{titur.id}}/delete/"><button>O`chirish</button></a><br><br>
+{%endfor%}
+<br><br>
+<hr>
+<form method="post">
+    {% csrf_token %}
+    <label>Ism:</label>
+    <input type="text" name="ism" placeholder="Ism kiriting..">
+    <label>Familya:</label>
+    <input type="text" name="familya" placeholder="Familya kiriting..">
+    <br><br>
+    <label>Yosh:</label>
+    <input type="text" name="yosh" placeholder="Yosh kiriting..">
+    <label>Telefon raqam:</label>
+    <input type="text" name="telefon_raqam" placeholder="Telefon raqam kiriting..">
+    <label>Jinsi</label>
+    <select name="jinsi">
+        <option>erkak</option>
+        <option>ayol</option>
+    </select>
+    <br><br>
+    <button>Qo`shish</button>
+</form>

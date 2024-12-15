@@ -1,0 +1,17 @@
+<center><h1>Ustozlar ro`yxati</h1></center>
+<form>
+    <input type="text" name="q_soz" placeholder="Ism kiriting..."
+    {% if q_soz %}
+      value="{{q_soz}}"
+           {%endif%}
+    >
+    <button>Qidirish</button>
+    <a href="/ustozlar/"><button type="button">Tozlash</button></a>
+</form>
+<hr>
+{% for ustoz in ustozlar %}
+
+<a href="/ustozlar/{{ustoz.id}}">{{forloop.counter}}.{{ustoz.ism}} {{ustoz.familya}} </a> <a href="/ustozlar/{{ustoz.id}}/delete/"><button>O`chirish</button></a> <br> <br>
+{%endfor%}
+<br><br>
+<a href="/"><button>Bosh sahifa</button></a>

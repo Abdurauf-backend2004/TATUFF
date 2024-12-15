@@ -1,0 +1,17 @@
+<center><h1>Guruhlar ro`yxati</h1></center>
+<form>
+    <input type="text" name="q_soz" placeholder="Guruh kiriting..."
+    {% if q_soz %}
+      value="{{q_soz}}"
+           {%endif%}
+    >
+    <button>Qidirish</button>
+    <a href="/guruhlar/"><button type="button">Tozlash</button></a>
+</form>
+<hr>
+{% for guruh in guruhlar %}
+
+<a href="/guruhlar/{{guruh.id}}">{{forloop.counter}}.{{guruh.guruh_nomi}}</a><a href="/guruhlar/{{guruh.id}}/delete/"><button>O`chirish</button></a><br><br>
+{%endfor%}
+<br><br>
+<a href="/"><button>Bosh sahifa</button></a>

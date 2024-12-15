@@ -1,0 +1,28 @@
+<center><h1>Yonalishlar ro`yxati</h1></center>
+<form >
+    <input type="text" name="q_soz" placeholder="Yo`nalish nomini kiriting"
+    {% if q_soz %} value="{{q_soz}}" {% endif%}>
+    <button>Qidirish</button>
+    <a href="/yonalish/"><button type="button">Tozlash</button></a>
+    <a href="/"><button type="button">Bosh sahifa</button></a>
+</form>
+<hr>
+{% for yonalish in yonalishlar %}
+<p><a href="/yonalish/{{yonalish.id}}"> {{forloop.counter}}.{{yonalish.yonalish_nomi}}</a><a href="/yonalish/{{yonalish.id}}/delete/"><button>O`chirish</button></a></p>
+{%endfor%}
+
+<br><br>
+<hr>
+<form method="post"> {%csrf_token%}
+    <label>Yonalish kiriting:</label>
+    <input name="yonalish" type="text" placeholder="Yonalish kiriting">
+    <br><br>
+    <label>Guruhlar sonini kiriting:</label>
+    <input type="number" name="guruh" placeholder="Guruhlar sonini kiriitng">
+    <label>Talabalar sonini kiriting</label>
+    <input type="number" name="talaba" placeholder="Talabalar sonini kiriitng">
+    <label>Titurlar soni</label>
+    <input type="number" name="titur" placeholder="Titurlar sonini kiriitng">
+    <br><br>
+    <button>Qo`shish</button>
+</form>

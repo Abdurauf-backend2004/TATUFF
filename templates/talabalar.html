@@ -1,0 +1,42 @@
+<center><h1>Talabalar ro`yxati</h1></center>
+<form>
+    <input type="text" name="q_soz" placeholder="Ism kiriting..."
+    {% if q_soz %}
+      value="{{q_soz}}"
+           {%endif%}
+    >
+    <button>Qidirish</button>
+    <a href="/talabalar/"><button type="button">Tozlash</button></a>
+    <a href="/"><button type="button">Bosh sahifa</button></a>
+</form>
+
+<hr>
+{% for talaba in talabalar %}
+<p>
+    {{forloop.counter}}.<a href="/talabalar/{{talaba.id}}">{{talaba.ism}} {{talaba.familya}} </a>
+    <a href="/talabalar/{{talaba.id}}/delete/">
+    &nbsp;&nbsp;&nbsp;<button>O`chirish</button>
+    </a >
+</p>
+{%endfor%}
+<hr>
+<form method="post">
+    {% csrf_token %}
+    <label>Ism:</label>
+    <input type="text" name="ism" placeholder="Ism kiriting..">
+    <label>Familya:</label>
+    <input type="text" name="familya" placeholder="Familya kiriting..">
+    <br><br>
+    <label>Yosh:</label>
+    <input type="text" name="yosh" placeholder="Yosh kiriting..">
+    <label>Telefon raqam:</label>
+    <input type="text" name="telefon_raqam" placeholder="Telefon raqam kiriting..">
+    <label>Ism:</label>
+    <input type="text" name="jinsi" placeholder="Jins kiriting..">
+    <select>Guruh:</select>
+
+    <br><br>
+    <button>Qo`shish</button>
+
+
+</form>

@@ -1,0 +1,14 @@
+<center><h1>{{fakultet.fakultet_nomi}} ma'lumoti</h1></center>
+<hr>
+<p>Fakultet nomi:{{fakultet.fakultet_nomi}}</p>
+<p>Yonalishlar:</p>
+<ul>
+{% for yonalish in fakultet.yonalish.all %}
+    <li>{{ yonalish.yonalish_nomi }}</li>
+{% endfor %}
+</ul>
+<p>Talabalar soni:{{fakultet.talabalar_soni}}</p>
+<p>Guruhlar soni:{{fakultet.guruhlar_soni}}</p>
+<p>Tegishli bino:{{fakultet.bino_fk}}</p>
+<a href="/"><button>Bosh sahifa</button></a>
+<a href="/fakultet"><button>Fakultetlar ro`yxati</button></a>

@@ -1,0 +1,15 @@
+<center><h1>Fakultetlar ro`yxati</h1></center>
+<form>
+    <input type="text" name="q_soz" placeholder="Fakultet kiriting"
+    {%if q_soz%} value="{{q_soz}}" {%endif%}>
+    <button>Qidirish</button>
+    <a href="/fakultet/"><button type="button">Tozlash</button></a>
+</form>
+<hr>
+
+{% for fakultet in fakultetlar %}
+
+<a href="/fakultet/{{fakultet.id}}">{{forloop.counter}}.{{fakultet.fakultet_nomi}} </a> <a href="/fakultet/{{fakultet.id}}/delete/"> <button> O`chirish</button> </a><br><br>
+{%endfor%}
+<br><br>
+<a href="/"><button>Bosh sahifa</button></a>

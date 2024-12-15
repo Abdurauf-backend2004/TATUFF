@@ -1,0 +1,39 @@
+<center><h1>Kafedra mudirlari ro`yxati</h1></center>
+<form>
+    <input type="text" name="q_soz" placeholder="Ism kiriting..."
+    {% if q_soz %}
+      value="{{q_soz}}"
+           {%endif%}
+    >
+    <button>Qidirish</button>
+    <a href="/kafedra-mudiri/"><button type="button">Tozlash</button></a>
+    <a href="/"><button type="button">Bosh sahifa</button></a>
+</form>
+<hr>
+{% for mudir in mudirlar %}
+
+<a href="/kafedra-mudiri/{{mudir.id}}">{{forloop.counter}}.{{mudir.ism}} {{mudir.familya}} </a> <a href="/kafedra-mudiri/{{mudir.id}}/delete/"><button>O`chirish</button></a><br><br>
+{%endfor%}
+<br><br>
+<hr>
+<form method="post">
+    {%csrf_token%}
+    <label>Ism kiriting:</label>
+    <input type="text" name="ism" placeholder="Ism kiriting">
+    <label>Familya kiriting</label>
+    <input type="text" name="familya" placeholder="Familya kiriting">
+    <br><br>
+    <label>Yosh kiriting:</label>
+    <input type="number" name="yosh" placeholder="Yosh kiriting">
+    <label>Telefon raqam</label>
+    <input name="telefon_raqam" type="text" placeholder="Telefon raqam kiriting">
+    <label>Jinsi</label>
+    <select name="jinsi">
+        <option>erkak</option>
+        <option>ayol</option>
+
+    </select>
+    <br><br>
+    <button>Qo`shish</button>
+
+</form>

@@ -1,0 +1,18 @@
+<center><h1>Kafedralar ro`yxati</h1></center>
+<form>
+    <input type="text" name="q_soz" placeholder="Kafedra nomini kiriting..."
+    {% if q_soz %}
+      value="{{q_soz}}"
+           {%endif%}
+    >
+    <button>Qidirish</button>
+    <a href="/kafedra/"><button type="button">Tozlash</button></a>
+</form>
+<hr>
+{% for kafedra in kafedralar %}
+
+<p><a href="/kafedra/{{kafedra.id}}">{{forloop.counter}}.{{kafedra.kafedra_nomi}}  </a> <a href="/kafedra/{{kafedra.id}}/delete/"><button>O`chirish</button></a></p>
+
+{%endfor%}
+<br><br>
+<a href="/"><button>Bosh sahifa</button></a>
